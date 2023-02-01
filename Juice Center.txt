@@ -1,0 +1,59 @@
+#!/bin/bash
+echo "Below are the juice available. "
+
+echo "Apple"
+echo "pineapple"
+echo "Banana"
+echo "Orange"
+echo "Mausambi"
+echo "Mango"
+echo "Chiku"
+
+#read -p "Enter your Choice " CHOICE
+SUM=0
+select CHOICE in Apple Pineapple Banana Orange Mausambi Mango Chiku Exit
+
+do
+case "${CHOICE}" in
+       "Apple")
+
+        UNITPRICE=30;;
+
+       "Pineapple")
+
+        UNITPRICE=20;;
+       "Banana")
+
+        UNITPRICE=70;;
+       "Orange")
+
+        UNITPRICE=50;;
+       "Mausambi")
+
+        UNITPRICE=30;;
+       "Chiku")
+
+        UNITPRICE=90;;
+       "Mango")
+
+        UNITPRICE=30;;
+        "Exit")
+
+
+        echo "Please pay ${SUM} and come again"
+        exit;;
+     *)
+     echo "Sorry your juice is not available"
+
+     exit
+     ;;
+     esac
+
+        echo "Price ${UNITPRICE}"
+        read -p "Quantity ?" QTY
+        TOTPRICE=`expr ${QTY} \* ${UNITPRICE}`
+        SUM=`expr ${SUM} + ${TOTPRICE}`
+
+
+done
+
